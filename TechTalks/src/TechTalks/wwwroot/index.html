@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <link href="/css/lavish-bootstrap.css" rel="stylesheet" />
+    <title>TechTalks</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <h3 class="navbar-brand"><img src="/images/angular-logo.png" />EPAM TechTalks</h3>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div ng-controller="homeController">
+            {{helloMessage}}
+        </div>
+    </div>
+    <script src="/libs/angular.js"></script>
+    <script src="/libs/angular-route.js"></script>
+    <script src="wwwroot/libs/bootstrap.js"></script>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/homeController.js"></script>
+</body>
+</html>
