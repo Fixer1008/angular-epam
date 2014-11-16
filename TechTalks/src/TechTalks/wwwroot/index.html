@@ -25,14 +25,48 @@
     <div class="container">
         <div ng-controller="homeController">
             <div>{{helloMessage}}</div>
-            <div><input class="form-control" type="text" ng-model="filterText" placeholder="{{filterPlaceholder}}"/></div>
-            <div ng-repeat="event in TechEvents | filter:filterText ">
-                <div class="col-md-4 col-md-offset-1 event">
-                    <h2>{{event.EventName}}</h2>
-                    <h5>by {{event.Instructor}}</h5>
-                    <h5>at <span>{{formatDate(event.PlannedTime)}}</span></h5>
+
+            <div class="row">
+                <div class="col-md-5 event">
+                    <form name="newEventForm">
+                        <h2>Create new event</h2>
+                        <div class="alert-success" ng-show="newEventForm.$submitted">
+                            <p>Event created.</p>
+                        </div>
+                        <fieldset>
+                            <label for="eventName">Event Name</label>
+                            <input id="eventName" type="text" required class="form-control" ng-model="newEvent.EventName" />
+                            <label for="eventDescription">Description</label>
+                            <input id="eventDescription" type="text" required class="form-control" ng-model="newEvent.Description" />
+                            <label for="eventInstructor">Instructor</label>
+                            <input id="eventInstructor" type="text" required class="form-control" ng-model="newEvent.Instructor" />
+                            <label for="eventDate">Date</label>
+                            <input id="eventDate" type="text" class="form-control" required ng-model="newEvent.PlannedTime" name="date_field" ng-pattern="/\d\d/\d\d/\d\d\d\d/" />
+                            <span ng-show="newEventForm.date_field.$error.pattern">Введите дату в формате dd/mm/yyyy!</span>
+                        </fieldset>
+                        <br />
+                        <div class="btn-block">
+                            <button type="submit" class="btn" ng-click="saveEvent(event, newEventForm)">Save</button>
+                            <button type="button" class="btn" ng-click="resetEvent(newEventForm)">Cancel</button>
+                        </div>
+                        <br />
+                    </form>
                 </div>
             </div>
+
+            <div class="row">
+                <div>
+                    <input class="form-control" type="text" ng-model="filterText" placeholder="{{filterPlaceholder}}"/>
+                </div>
+                <div ng-repeat="event in TechEvents | filter:filterText ">
+                    <div class="col-md-3 col-md-offset-1 event">
+                        <h2>{{event.EventName}}</h2>
+                        <h5>by {{event.Instructor}}</h5>
+                        <h5>at <span>{{formatDate(event.PlannedTime)}}</span></h5>
+                    </div>
+                </div>
+            </div>
+           
         </div>
     </div>
     <script src="/libs/angular.js"></script>
