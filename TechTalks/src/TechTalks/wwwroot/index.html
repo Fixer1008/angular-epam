@@ -35,21 +35,21 @@
                         </div>
                         <fieldset>
                             <label for="eventName">Event Name</label>
-                            <input id="eventName" type="text" required class="form-control" ng-model="newEvent.EventName" />
+                            <input id="eventName" type="text" required class="form-control" ng-model="newEvent.EventName"/>
                             <label for="eventDescription">Description</label>
-                            <input id="eventDescription" type="text" required class="form-control" ng-model="newEvent.Description" />
+                            <input id="eventDescription" type="text" required class="form-control" ng-model="newEvent.Description"/>
                             <label for="eventInstructor">Instructor</label>
-                            <input id="eventInstructor" type="text" required class="form-control" ng-model="newEvent.Instructor" />
+                            <input id="eventInstructor" type="text" required class="form-control" ng-model="newEvent.Instructor"/>
                             <label for="eventDate">Date</label>
-                            <input id="eventDate" type="text" class="form-control" required ng-model="newEvent.PlannedTime" name="date_field" ng-pattern="/\d\d/\d\d/\d\d\d\d/" />
+                            <input id="eventDate" type="text" class="form-control" required ng-model="newEvent.PlannedTime" name="date_field" ng-pattern="/\d\d/\d\d/\d\d\d\d/"/>
                             <span ng-show="newEventForm.date_field.$error.pattern">Введите дату в формате dd/mm/yyyy!</span>
                         </fieldset>
-                        <br />
+                        <br/>
                         <div class="btn-block">
                             <button type="submit" class="btn" ng-click="saveEvent(event, newEventForm)">Save</button>
                             <button type="button" class="btn" ng-click="resetEvent(newEventForm)">Cancel</button>
                         </div>
-                        <br />
+                        <br/>
                     </form>
                 </div>
             </div>
