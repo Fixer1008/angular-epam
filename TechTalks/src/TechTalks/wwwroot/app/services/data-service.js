@@ -5,7 +5,8 @@ angular.module('app.home').factory('dataService', ['$resource', function($resour
   {
     TechEvents: $resource('/api/techtalk/:id', { /* default query param */ }, {
       query: { method: "GET", isArray: true },
-      get: { method: "GET"}
+      get: { method: "GET" },
+      save: { method: "POST"}
     })
   }
 

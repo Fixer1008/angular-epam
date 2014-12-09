@@ -12,13 +12,6 @@ angular.module('app.home', ['ngResource'])
     return some;
   };
 
-  var event = dataService.TechEvents.get({ id: 1 });
-  $log.info(event);
-  $log.warn(event);
-  $log.debug(event);
-  $log.error(event);
-
-
   $scope.TechEvents = dataService.TechEvents.query();
 }])
 
