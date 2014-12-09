@@ -1,10 +1,9 @@
 ﻿'use strict';
 
-angular.module('app.home', [])
+angular.module('app.home', ['ngResource'])
 
-.controller("homeController", ['$scope', '$http', function ($scope, $http) {
+.controller("homeController", ['$scope', '$http', 'dataService', function ($scope, $http, dataService) {
   $scope.helloMessage = "Hi, EPAM!";
-  $scope.TechEvents = [];
   $scope.filterPlaceholder = "Enter name of instructor here";
   $scope.filterValue = "";
 
@@ -13,13 +12,16 @@ angular.module('app.home', [])
     return some;
   };
 
+  $scope.TechEvents = dataService.TechEvents.query();
+
+  /*
   $http.get('/api/techtalk/').
     success(function (data) {
       for (var i = 0; i < data.length; i++) {
         $scope.TechEvents.push(data[i]);
       }
     });
-
+    */
 }])
 
 
