@@ -3,8 +3,9 @@
 angular.module('app.home').factory('dataService', ['$resource', function($resource) {
   var resources = 
   {
-    TechEvents: $resource('/api/techtalk/', { /* default query param */ }, {
-      query: { method: "GET", isArray: true }
+    TechEvents: $resource('/api/techtalk/:id', { /* default query param */ }, {
+      query: { method: "GET", isArray: true },
+      get: { method: "GET"}
     })
   }
 

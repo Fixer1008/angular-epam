@@ -2,7 +2,7 @@
 
 angular.module('app.home', ['ngResource'])
 
-.controller("homeController", ['$scope', '$http', 'dataService', function ($scope, $http, dataService) {
+.controller("homeController", ['$scope', '$http', 'dataService','$log', function ($scope, $http, dataService, $log) {
   $scope.helloMessage = "Hi, EPAM!";
   $scope.filterPlaceholder = "Enter name of instructor here";
   $scope.filterValue = "";
@@ -12,16 +12,14 @@ angular.module('app.home', ['ngResource'])
     return some;
   };
 
-  $scope.TechEvents = dataService.TechEvents.query();
+  var event = dataService.TechEvents.get({ id: 1 });
+  $log.info(event);
+  $log.warn(event);
+  $log.debug(event);
+  $log.error(event);
 
-  /*
-  $http.get('/api/techtalk/').
-    success(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        $scope.TechEvents.push(data[i]);
-      }
-    });
-    */
+
+  $scope.TechEvents = dataService.TechEvents.query();
 }])
 
 
